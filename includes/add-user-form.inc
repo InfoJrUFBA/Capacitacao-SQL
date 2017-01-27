@@ -4,9 +4,9 @@
     <label>Nome:</label>
     <input type="text" name="name" placeholder="Digite seu nome" required>
     <label>Idade:</label>
-    <input type="int" name="age" placeholder="Digite sua idade" required>
+    <input type="number" name="age" placeholder="Digite sua idade" required>
     <label>Seguro:</label><br>
-    <input type="radio" name="insurance" value=true>Tem seguro<br>
-    <input type="radio" name="insurance" value=false>Não tem seguro
+    <input type="radio" name="insurance" value=1>Tem seguro<br>
+    <input type="radio" name="insurance" value=0>Não tem seguro
     <button name="action" value="create">Enviar</button>
 </form>
