@@ -15,6 +15,9 @@
                 <form action="../controllers/ActivePrincipleController.php?id=<?php echo $activePrinciple->id; ?>" enctype="multipart/form-data" method="POST">
                     <button name="action" value="delete">Deletar</button>
                 </form>
+                <a href="add-medicine.php?active_principle_id=<?php echo $activePrinciple->id ?>"">
+                    <button>Adicionar Medicamento com este Princípio Ativo</button>
+                </a>
             </div>
         <?php endforeach ?>
         <a href="add-ap.php">
