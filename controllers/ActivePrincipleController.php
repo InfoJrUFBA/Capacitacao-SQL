@@ -13,7 +13,7 @@
                     $_SESSION['msg'] = 'Erro ao criar usuário!';
                 }
             }
-            header('Location:../views/activeprinciple-list.php');
+            header('Location:../views/ap-list.php');
         }
 
         public static function update(){
@@ -27,7 +27,7 @@
                     $_SESSION['msg'] = 'Erro ao editar usuário!';
                 }
             }
-            header('Location:../views/activeprinciple-list.php');
+            header('Location:../views/ap-list.php');
         }
 
         public static function delete(){
@@ -41,7 +41,7 @@
                     $_SESSION['msg'] = 'Erro ao deletar usuário!';
                 }
             }
-            header('Location:../views/activeprinciple-list.php');
+            header('Location:../views/ap-list.php');
         }
 
         public static function selectActivePrinciple($id) {

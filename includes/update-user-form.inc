@@ -12,7 +12,7 @@
     <input type="email" name="email" placeholder="Digite seu e-mail" value="<?php echo $user->email; ?>" required>
     <label>Nome:</label>
     <input type="text" name="name" placeholder="Digite seu nome" value="<?php echo $user->name; ?>" required>
-    <label>Nome:</label>
+    <label>Idade:</label>
     <input type="number" name="age" placeholder="Digite seu nome" value="<?php echo $user->age; ?>" required>
     <label>insurance:</label><br>
     <input type="radio" name="insurance" value=1 <?php if(isset($user) && $user->insurance==1) echo "checked"; ?>>Tem seguro<br>
