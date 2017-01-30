@@ -16,20 +16,6 @@
             header('Location:../views/medicine-list.php');
         }
 
-        public static function update(){
-            if ($_POST['name'] != '' &&  $_POST['generic'] != ''  &&  $_GET['active_principle_id'] != '') {
-                $medicine = new Medicine($_REQUEST);
-                try {
-                    $medicine->update();
-                    $_SESSION['msg'] = 'Usuário editado com sucesso!';
-                }
-                catch(pdoexception $e) {
-                    $_SESSION['msg'] = 'Erro ao editar usuário!';
-                }
-            }
-            header('Location:../views/medicine-list.php');
-        }
-
         public static function delete(){
             $medicine = new Medicine($_REQUEST);
             if (!empty($medicine->id)) {
@@ -82,7 +68,7 @@
         }
 
     }
-    $postActions = array('create', 'update', 'delete');
+    $postActions = array('create', 'delete');
     if (isset($_POST['action']) && in_array($_POST['action'], $postActions)) {
         $action = $_POST['action'];
         MedicineController::$action();

@@ -17,7 +17,6 @@
                 $activePrinciple = ActivePrincipleController::selectActivePrinciple($medicine->active_principle_id);
                 echo $medicine->id.' - '.$medicine->name.' - '.$activePrinciple->name.' - '.$generic;
                  ?>
-                <a href="update-medicine.php?id=<?php echo $medicine->id ?>"><button>Editar</button></a>
                 <form action="../controllers/MedicineController.php?id=<?php echo $medicine->id; ?>" enctype="multipart/form-data" method="POST">
                     <button name="action" value="delete">Deletar</button>
                 </form>

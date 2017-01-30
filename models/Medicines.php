@@ -24,16 +24,6 @@
             return $stm->execute();
         }
 
-        public function update() {
-            $connect = self::start();
-            $stm = $connect->prepare('UPDATE `medicines` SET name=:name, generic=:generic, active_principle_id=:active_principle_id WHERE id=:id');
-            $stm->bindValue(':id', $this->id, PDO::PARAM_INT);
-            $stm->bindValue(':name', $this->name, PDO::PARAM_STR);
-            $stm->bindValue(':generic', $this->generic, PDO::PARAM_INT);
-            $stm->bindValue(':active_principle_id', $this->active_principle_id, PDO::PARAM_INT);
-            return $stm->execute();
-        }
-
         public function delete() {
             $connect = self::start();
             $stm = $connect->prepare('DELETE FROM medicines WHERE id = :id');
