@@ -1,55 +1,55 @@
 <?php
-    require_once('../models/Users.php');
-    class UserController {
+    require_once('../models/ActivePrinciple.php');
+    class ActivePrincipleController {
 
         public static function create(){
-            if ($_POST['email'] != '' && $_POST['name'] != '' &&  $_POST['age'] != ''  &&  $_POST['insurance'] != '') {
-                $user = new User($_REQUEST);
+            if ($_POST['name'] != '') {
+                $active = new ActivePrinciple($_REQUEST);
                 try {
-                    $user->create();
+                    $active->create();
                     $_SESSION['msg'] = 'Usuário criado com sucesso!';
                 }
                 catch(pdoexception $e) {
                     $_SESSION['msg'] = 'Erro ao criar usuário!';
                 }
             }
-            header('Location:../views/user-list.php');
+            header('Location:../views/activeprinciple-list.php');
         }
 
         public static function update(){
-            if ($_POST['email'] != '' && $_POST['name'] != '' &&  $_POST['age'] != ''  &&  $_POST['insurance'] != '') {
-                $user = new User($_REQUEST);
+            if ($_POST['name'] != '') {
+                $active = new ActivePrinciple($_REQUEST);
                 try {
-                    $user->update();
+                    $active->update();
                     $_SESSION['msg'] = 'Usuário editado com sucesso!';
                 }
                 catch(pdoexception $e) {
                     $_SESSION['msg'] = 'Erro ao editar usuário!';
                 }
             }
-            header('Location:../views/user-list.php');
+            header('Location:../views/activeprinciple-list.php');
         }
 
         public static function delete(){
-            $user = new User($_REQUEST);
-            if (!empty($user->id)) {
+            $active = new ActivePrinciple($_REQUEST);
+            if (!empty($active->id)) {
                 try {
-                    $user->delete();
+                    $active->delete();
                     $_SESSION['msg'] = 'Usuário deletado com sucesso!';
                 }
                 catch(pdoexception $e) {
                     $_SESSION['msg'] = 'Erro ao deletar usuário!';
                 }
             }
-            header('Location:../views/user-list.php');
+            header('Location:../views/activeprinciple-list.php');
         }
 
-        public static function selectUser($id) {
+        public static function selectActivePrinciple($id) {
             if (!empty($id)) {
                 try {
-                    $user = User::readUser($id);
+                    $active = ActivePrinciple::readActivePrinciple($id);
                     $_SESSION['msg'] = "Sucesso ao ler um usuário.";
-                    return $user;
+                    return $active;
                 }
                 catch (pdoexception $e) {
                     $_SESSION['msg'] = "Falha ao ler um usuário.";
@@ -57,12 +57,12 @@
             }
         }
 
-        public static function getUser($email) {
-            if (!empty($email)) {
+        public static function getActivePrinciple($id) {
+            if (!empty($id)) {
                 try {
-                    $user = User::getUser($email);
+                    $active = ActivePrinciple::getActivePrinciple($id);
                     $_SESSION['msg'] = "Sucesso ao ler um usuário.";
-                    return $user;
+                    return $active;
                 }
                 catch (pdoexception $e) {
                     $_SESSION['msg'] = "Falha ao ler um usuário.";
@@ -70,11 +70,11 @@
             }
         }
 
-        public static function selectAllUsers() {
+        public static function selectAllActivePrinciples() {
             try {
-                $users = User::readAllUsers();
+                $actives = ActivePrinciple::readAllActivePrinciples();
                 $_SESSION['msg'] = "Todos os usuários foram lidos com sucesso";
-                return $users;
+                return $actives;
             }
             catch (pdoexception $e) {
                 $_SESSION['msg'] = "Falha ao ler todos os usuários";
@@ -85,5 +85,5 @@
     $postActions = array('create', 'update', 'delete');
     if (isset($_POST['action']) && in_array($_POST['action'], $postActions)) {
         $action = $_POST['action'];
-        UserController::$action();
+        ActivePrincipleController::$action();
     }

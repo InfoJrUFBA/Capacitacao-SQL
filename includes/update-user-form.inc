@@ -16,6 +16,6 @@
     <input type="number" name="age" placeholder="Digite seu nome" value="<?php echo $user->age; ?>" required>
     <label>insurance:</label><br>
     <input type="radio" name="insurance" value=1 <?php if(isset($user) && $user->insurance==1) echo "checked"; ?>>Tem seguro<br>
-    <input type="radio" name="insurance" value=0 <?php if(isset($user) && $user->insurance==2) echo "checked"; ?>>Não tem seguro<br>
+    <input type="radio" name="insurance" value=0 <?php if(isset($user) && $user->insurance==0) echo "checked"; ?>>Não tem seguro<br>
     <button name="action" value="update">Enviar</button>
 </form>
