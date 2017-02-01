@@ -13,6 +13,7 @@
                 <?php $insurance = $user->insurance == 1 ? 'Tem seguro' : 'Não tem seguro';
                 echo $user->id.' - '.$user->name.' - '.$user->email.' - '.$user->age.' - '.$insurance;
                  ?>
+                <a href="user-medication-list.php?id=<?php echo $user->id ?>"><button>Ver Receita</button></a>
                 <a href="update-user.php?id=<?php echo $user->id ?>"><button>Editar</button></a>
                 <form action="../controllers/UserController.php?id=<?php echo $user->id; ?>" enctype="multipart/form-data" method="POST">
                     <button name="action" value="delete">Deletar</button>

@@ -47,7 +47,7 @@
 
         public static function readUser($id) {
             $connect = self::start();
-            $stm = $connect->prepare('SELECT name, email, age, insurance FROM users WHERE id=:id');
+            $stm = $connect->prepare('SELECT id, name, email, age, insurance FROM users WHERE id=:id');
             $stm->bindValue(':id', $id, PDO::PARAM_INT);
             $stm->execute();
             return $stm->fetch(PDO::FETCH_OBJ);

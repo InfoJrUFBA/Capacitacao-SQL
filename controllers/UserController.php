@@ -1,5 +1,6 @@
 <?php
     require_once('../models/Users.php');
+    require_once('../models/UserNeedsMedicine.php');
     class UserController {
 
         public static function create(){
@@ -81,8 +82,44 @@
             }
         }
 
+        public static function readUserMedicines($id){
+            try{
+                //$medicines = UserNeedsMedicine::readUserMedicines($id);
+                $medicines = UserNeedsMedicine::fetchUserMedicines($id);
+                $_SESSION['msg'] = "Todos os usuários foram lidos com sucesso";
+                return $medicines;
+            }
+            catch (pdoexception $e) {
+                $_SESSION['msg'] = "Falha ao ler todos os usuários";
+            }
+        }
+
+        public static function getUserMedicines($id){
+            try{
+                $medicines = UserNeedsMedicine::getUserMedicines($id);
+                $_SESSION['msg'] = "Todos os usuários foram lidos com sucesso";
+                return $medicines;
+            }
+            catch (pdoexception $e) {
+                $_SESSION['msg'] = "Falha ao ler todos os usuários";
+            }
+        }
+
+        public static function deleteNeedForMedicine($medicines_id){
+            if (!empty($medicines_id)) {
+                try {
+                    $medicine = new Medicine($_REQUEST);
+                    $medicine->delete();
+                    $_SESSION['msg'] = 'Usuário deletado com sucesso!';
+                }
+                catch(pdoexception $e) {
+                    $_SESSION['msg'] = 'Erro ao deletar usuário!';
+                }
+            }
+            header('Location:../views/user-list.php');
+        }
     }
-    $postActions = array('create', 'update', 'delete');
+    $postActions = array('create', 'update', 'delete', 'deleteNeedForMedicine');
     if (isset($_POST['action']) && in_array($_POST['action'], $postActions)) {
         $action = $_POST['action'];
         UserController::$action();

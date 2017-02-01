@@ -59,6 +59,22 @@ INSERT INTO `medicines` (`id`, `name`, `generic`, `active_principle_id`) VALUES
 (8, 'Medicilina', 1, 3),
 (9, 'Merlinina', 1, 5),
 (10, 'Donaltrumpina', 0, 7);
+
+--
+-- Extraindo dados da tabela `user_needs_medicine`
+--
+
+INSERT INTO `user_needs_medicine` (`users_id`, `medicines_id`) VALUES
+(1, 1),
+(1, 5),
+(1, 7),
+(1, 10),
+(2, 2),
+(2, 8),
+(2, 9),
+(3, 3),
+(3, 4),
+(3, 6);
 --
 -- Indexes for dumped tables
 --

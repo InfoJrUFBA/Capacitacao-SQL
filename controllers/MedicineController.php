@@ -43,10 +43,10 @@
             }
         }
 
-        public static function getMedicine($email) {
-            if (!empty($email)) {
+        public static function getMedicine($name) {
+            if (!empty($name)) {
                 try {
-                    $medicine = Medicine::getMedicine($email);
+                    $medicine = Medicine::getMedicine($name);
                     $_SESSION['msg'] = "Sucesso ao ler um usuário.";
                     return $medicine;
                 }
