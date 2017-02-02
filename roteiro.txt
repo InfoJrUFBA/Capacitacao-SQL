@@ -1,0 +1,19 @@
+Olá trainee!
+
+Este repositório é o de um projeto trainee em desenvolvimento, cuja equipe pediu ajuda do diretor de projetos Ian, que por ser desajeitado, acabou apagando algumas partes das models, tragédia! Sua tarefa é consertar as models com seu conhecimento de queries!
+
+Ian destruiu o CRUD de usuários! Primeiro, abra a página user-list.php, e conserte a query de readAllUsers() na model de usuários, para que o sistema possa mostrar a lista de usuários.
+
+Agora, precisamos consertar a adição de usuários! Clique em adicionar usuário e tente criar um novo usuário, verá que o sistema não o criou! Conserte a query de create() na model de usuários.
+
+Agora que a criação funciona, tente editar o usuário que você criou. Não editou! Conserte a query de update() na model de usuários.
+
+Agora que você conseguiu editar o usuário que você criou, tente deletar ele. Não deletou! Conserte a query de delete() na model de usuários.
+
+Finalmente agora o sistema lê, cria, edita, e deleta usuários! Agora acesse o endereço medicine-list.php e veja o erro que aparece. O sistema está tentando ler o nome do princípio ativo de cada medicamento da lista mas não consegue, poxa Ian! Conserte a query de readActivePrinciple() na model de princípios ativos.
+
+Agora acesse ap-list.php, o cliente pediu que na lista de princípios ativos mostre quantos medicamentos usa cada princípio ativo. Conserte a query de countMedicinesUsing() na model de princípios ativos.
+
+Ok, agora vem a parte difícil. O sistema precisa exibir a receita de cada cliente. Volta para user-list.php e clique em ver receita de um dos usuários da seed. Evidentemente Ian quebrou isso também. Conserte a query de fetchUserMedicines() na model da tabela relacional usando INNER JOIN.
+
+Parabéns, você consertou o que Ian fez!
