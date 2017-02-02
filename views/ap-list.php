@@ -12,7 +12,7 @@
             <div>
                 <?php
                     $numberOfMedicines = ActivePrincipleController::countMedicinesUsing($activePrinciple->id);
-                    echo $activePrinciple->id.' - '.$activePrinciple->name.' - '.$numberOfMedicines->medicinesFromID.' Medicamentos usam este princípio ativo';
+                    echo $activePrinciple->id.' - '.$activePrinciple->name.' - '.$numberOfMedicines->medicinesFromID.' medicamento(s) usam este princípio ativo';
                 ?><br>
                 <a href="update-ap.php?id=<?php echo $activePrinciple->id ?>"><button>Editar</button></a>
                 <form action="../controllers/ActivePrincipleController.php?id=<?php echo $activePrinciple->id; ?>" enctype="multipart/form-data" method="POST">

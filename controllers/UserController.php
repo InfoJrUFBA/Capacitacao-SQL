@@ -118,6 +118,20 @@
             }
             header('Location:../views/user-list.php');
         }
+
+        
+        public static function countMedicinesUsedBy($id) {
+            if (!empty($id)) {
+                try {
+                    $number = User::countMedicinesUsedBy($id);
+                    $_SESSION['msg'] = "Sucesso ao ler um usuário.";
+                    return $number;
+                }
+                catch (pdoexception $e) {
+                    $_SESSION['msg'] = "Falha ao ler um usuário.";
+                }
+            }
+        }
     }
     $postActions = array('create', 'update', 'delete', 'deleteNeedForMedicine');
     if (isset($_POST['action']) && in_array($_POST['action'], $postActions)) {

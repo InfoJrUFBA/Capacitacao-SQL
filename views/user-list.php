@@ -10,8 +10,10 @@
         <label>Todos os usuários:</label>
         <?php foreach ($users as $user) : ?>
             <div>
-                <?php $insurance = $user->insurance == 1 ? 'Tem seguro' : 'Não tem seguro';
-                echo $user->id.' - '.$user->name.' - '.$user->email.' - '.$user->age.' - '.$insurance;
+                <?php
+                    $insurance = $user->insurance == 1 ? 'Tem seguro' : 'Não tem seguro';
+                    $numberOfMedicines = UserController::countMedicinesUsedBy($user->id);
+                    echo $user->id.' - '.$user->name.' - '.$user->email.' - '.$user->age.' - '.$insurance.' - '.$numberOfMedicines->medicinesFromID.' remédios na receita deste usuário';
                  ?>
                 <a href="user-medication-list.php?id=<?php echo $user->id ?>"><button>Ver Receita</button></a>
                 <a href="update-user.php?id=<?php echo $user->id ?>"><button>Editar</button></a>

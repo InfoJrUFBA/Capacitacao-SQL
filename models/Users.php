@@ -68,5 +68,12 @@
             return $stm->fetchAll(PDO::FETCH_OBJ);
         }
 
+        public static function countMedicinesUsedBy($users_id) {
+            $connect = self::start();
+            $stm = $connect->prepare('SELECT COUNT(users_id) AS medicinesFromID FROM user_needs_medicine WHERE users_id=:users_id');
+            $stm->bindValue(':users_id', $users_id, PDO::PARAM_INT);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ);
+        }
     }
 ?>
