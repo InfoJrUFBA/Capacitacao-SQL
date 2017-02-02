@@ -45,7 +45,8 @@
 
         public static function fetchUserMedicines($users_id) {
             $connect = self::start();
-            $stm = $connect->prepare('');
+            $stm = $connect->prepare('SELECT medicines.id, medicines.name, medicines.generic, medicines.active_principle_id FROM medicines INNER JOIN user_needs_medicine ON user_needs_medicine.medicines_id = medicines.id AND user_needs_medicine.users_id = :users_id');
+            $stm->bindValue(':users_id', $users_id, PDO::PARAM_INT);
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_OBJ);
         }
