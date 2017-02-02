@@ -81,6 +81,18 @@
             }
         }
 
+        public static function countMedicinesUsing($id) {
+            if (!empty($id)) {
+                try {
+                    $number = ActivePrinciple::countMedicinesUsing($id);
+                    $_SESSION['msg'] = "Sucesso ao ler um usuário.";
+                    return $number;
+                }
+                catch (pdoexception $e) {
+                    $_SESSION['msg'] = "Falha ao ler um usuário.";
+                }
+            }
+        }
     }
     $postActions = array('create', 'update', 'delete');
     if (isset($_POST['action']) && in_array($_POST['action'], $postActions)) {
