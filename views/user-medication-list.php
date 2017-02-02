@@ -7,8 +7,7 @@
     }
     else{
         $user = UserController::selectUser($_GET['id']);
-        $medicineList = UserController::readUserMedicines($user->id);
-        //var_dump($medicineList); die();
+        $medicineList = UserController::fetchUserMedicines($user->id);
     }
 ?>
 <!DOCTYPE html>
@@ -26,9 +25,6 @@
                     $activePrinciple = ActivePrincipleController::selectActivePrinciple($medicine->active_principle_id);
                     echo $medicine->id.' - '.$medicine->name.' - '.$activePrinciple->name.' - '.$generic;
                 ?>
-                <!-- <form action="../controllers/UserController.php?medicines_id=<?php echo $medicine->id; ?>" enctype="multipart/form-data" method="POST">
-                    <button name="action" value="delete">Deletar</button>
-                </form> -->
             </div>
         <?php endforeach ?>
     </body>

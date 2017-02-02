@@ -35,8 +35,7 @@
 
         public static function readActivePrinciple($id) {
             $connect = self::start();
-            $stm = $connect->prepare('SELECT id, name FROM active_principle WHERE id=:id');
-            $stm->bindValue(':id', $id, PDO::PARAM_INT);
+            $stm = $connect->prepare('');
             $stm->execute();
             return $stm->fetch(PDO::FETCH_OBJ);
         }
@@ -58,8 +57,7 @@
 
         public static function countMedicinesUsing($active_principle_id) {
             $connect = self::start();
-            $stm = $connect->prepare('SELECT COUNT(active_principle_id) AS medicinesFromID FROM medicines WHERE active_principle_id=:active_principle_id');
-            $stm->bindValue(':active_principle_id', $active_principle_id, PDO::PARAM_INT);
+            $stm = $connect->prepare('');
             $stm->execute();
             return $stm->fetch(PDO::FETCH_OBJ);
         }

@@ -82,9 +82,8 @@
             }
         }
 
-        public static function readUserMedicines($id){
+        public static function fetchUserMedicines($id){
             try{
-                //$medicines = UserNeedsMedicine::readUserMedicines($id);
                 $medicines = UserNeedsMedicine::fetchUserMedicines($id);
                 $_SESSION['msg'] = "Todos os usuários foram lidos com sucesso";
                 return $medicines;
